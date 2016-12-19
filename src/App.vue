@@ -10,21 +10,24 @@
                         <input
                                 type="text"
                                 id="email"
-                                class="form-control">
+                                class="form-control"
+                                v-model="userData.email">
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
                         <input
                                 type="password"
                                 id="password"
-                                class="form-control">
+                                class="form-control"
+                                v-model="userData.password">
                     </div>
                     <div class="form-group">
                         <label for="age">Age</label>
                         <input
                                 type="number"
                                 id="age"
-                                class="form-control">
+                                class="form-control"
+                                v-model="userData.age">
                     </div>
 
                 </div>
@@ -96,14 +99,14 @@
         <hr>
         <div class="row">
             <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
+                <div class="card card-default">
+                    <div class="card-heading">
                         <h4>Your Data</h4>
                     </div>
-                    <div class="panel-body">
-                        <p>Mail:</p>
-                        <p>Password:</p>
-                        <p>Age:</p>
+                    <div class="">
+                        <p>Mail: {{ userData.email }}</p>
+                        <p>Password: {{ userData.password }}</p>
+                        <p>Age: {{ userData.age }}</p>
                         <p>Message: </p>
                         <p><strong>Send Mail?</strong></p>
                         <ul>
@@ -121,6 +124,15 @@
 
 <script>
     export default {
+      data() {
+        return {
+          userData: {
+            email: '',
+            password: '',
+            age: 28
+          }
+        }
+      }
     }
 </script>
 
