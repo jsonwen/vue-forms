@@ -135,6 +135,15 @@
                 </div>
             </div>
         </div>
+        <hr/>
+        <h1>Search</h1>
+        <input type="text" v-model="search" />
+        <ul>
+          <li v-for="result in filterSearch">
+            {{ result }}
+          </li>
+        </ul>
+      </hr/>
     </div>
 </template>
 
@@ -157,12 +166,21 @@
           selectedPriority: 'Medium',
           priorities: ['High', 'Medium', 'Low'],
           dataSwitch: true,
-          isSubmitted: false
+          isSubmitted: false,
+          search: '',
+          searchList: ['Apple', 'Banana', 'Mango', 'Melon']
         }
       },
       methods: {
         submitted() {
           this.isSubmitted = true;
+        }
+      },
+      computed: {
+        filterSearch() {
+          return this.searchList.filter((element) => {
+            return element.match(this.search);
+          });
         }
       }
     }
